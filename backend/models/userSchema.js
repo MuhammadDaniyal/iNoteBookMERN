@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.generateToken = async function () {
     try {
-        const genToken = jwt.sign({_id:this._id.toString()}, process.env.SECRET_KEY)
+        const genToken = jwt.sign({_id:this._id.toString()}, "muhammaddaniyalsaleemcsitmerndeveloper")
         console.log(genToken);
         return genToken
     } catch (error) {

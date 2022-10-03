@@ -44,7 +44,7 @@ router.post('/addnote', fetchauthuser, [
     }
 })
 
-// ROUTE:3 - update user note GET '/api/auth/updatenote/:id'  login required
+// ROUTE:3 - update user note GET '/api/auth/updatenote/:id'  login required - note ki id denga user ki nh
 router.put('/updatenote/:id', fetchauthuser, async (req, res) => {
     const { title, description, tag } = req.body
     try {
@@ -52,10 +52,10 @@ router.put('/updatenote/:id', fetchauthuser, async (req, res) => {
         const newNote = {}
         if (title || description || tag) {
             newNote.title = title,
-                newNote.description = description,
-                newNote.tag = tag
+            newNote.description = description,
+            newNote.tag = tag
         }
-        // find the note to be updated and updated
+        // find the note to be updated and update it
         const currentNote = await Note.findById(req.params.id)
         if (!currentNote) { // id note does not exists 
             return res.status(404).send('note Not found ')

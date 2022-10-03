@@ -9,7 +9,7 @@ const fetchauthuser = async (req, res, next) => {
         res.status(401).send({ error: 'please authenticate a user using valid token' })
     }
     try {
-        const verifyToken = jwt.verify(token, process.env.SECRET_KEY)
+        const verifyToken = jwt.verify(token, "muhammaddaniyalsaleemcsitmerndeveloper")
         req.user = verifyToken
         // console.log(req.user);
         next()
